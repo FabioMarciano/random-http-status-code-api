@@ -13,7 +13,7 @@ WORKDIR /cache
 COPY package.json .
 
 # Install the application's dependencies into the node_modules's cache directory.
-RUN npm install
+RUN npm install && npm install -g typescript
 
 # Remove the package.json to prevent overwriting.
 RUN rm -f package.json
