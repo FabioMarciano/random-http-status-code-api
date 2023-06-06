@@ -4,7 +4,8 @@ import HttpStatus from '../../src/type/http.status';
 
 const req = {} as Request;
 const res = {} as Response;
-res.sendStatus = jest.fn();
+res.status = jest.fn().mockReturnThis();
+res.send = jest.fn();
 req.params = { httpStatusCode: `${HttpStatus.OK}` };
 
 describe('Status Code Controller', () => {

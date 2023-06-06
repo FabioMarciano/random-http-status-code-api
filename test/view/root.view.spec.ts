@@ -1,20 +1,22 @@
 import { Request, Response } from 'express';
 import { root } from '../../src/view';
-import { HttpStatus } from '../../src/type';
+import { HttpStatus, HttpStatusMessage } from '../../src/type';
 
 const req = {} as Request;
 const res = {} as Response;
-res.sendStatus = jest.fn().mockReturnThis();
+res.status = jest.fn().mockReturnThis();
+res.send = jest.fn();
 
 describe('Root View', () => {
 	it('Should view be called once with statusCode string', () => {
 		const httpStatusCode: HttpStatus = HttpStatus.OK;
 		root(req, res, httpStatusCode);
-		expect(res.sendStatus).toBeCalledWith(httpStatusCode);
+		expect(res.status(httpStatusCode).send).toBeCalledWith(HttpStatusMessage[httpStatusCode]);
 	});
 
 	it('Should view be called once with no statusCode string', () => {
+		const httpStatusCode: HttpStatus = HttpStatus.OK;
 		root(req, res);
-		expect(res.sendStatus).toBeCalled();
+		expect(res.status(httpStatusCode).send).toBeCalled();
 	});
 });
