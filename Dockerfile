@@ -3,26 +3,20 @@ FROM node:lts-alpine
 # Add bash to alpine.
 RUN apk update && apk add --no-cache bash
 
-# Create the node_modules's cache directory.
-RUN mkdir /cache
-
-# Define the node_modules's cache directory.
-WORKDIR /cache
+# Change the workdir.
+WORKDIR /app
 
 # Copy the package.json file.
 COPY package.json .
 
 # Install the application's dependencies into the node_modules's cache directory.
-RUN npm install
+RUN npm install && npm install typescript -g
 
-# Remove the package.json to prevent overwriting.
-# RUN rm -f package.json
+# Copying all files
+COPY . .
 
-# Create the app directory.
-RUN mkdir /app
-
-# Change the workdir.
-WORKDIR /app
+# Compiling typescript files
+RUN tsc
 
 # Execute the entrypoint script.
 ENTRYPOINT ["/app/entrypoint.sh"]
