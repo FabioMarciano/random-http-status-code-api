@@ -28,12 +28,6 @@ See _LICENSE_ file at project's root folder.
 
 # Services
 
-The following available services are described at **docker-compose.yml** file. It uses some envirnment variables from **.env** file.
-
-- NodeJS server
-
-> **Important:** The **.env** file must be considered **only in development environment**.
-
 ## NodeJS
 
 The NodeJS service is an NodeJS/Express/Alpine server.
@@ -46,13 +40,23 @@ The following environment variables are available at **.env** file.
 >
 > - The **.env** file must be considered **only in development environment**.
 
-| Name     | Description                           | Default Value |
-| -------- | ------------------------------------- | ------------- |
-| PORT     | The application port                  | 3000          |
-| NODE_ENV | The NodeJS environment's current name | dev           |
-| API_BASE | The application router base path      | /api          |
+| Name        | Description                           | Default Value |
+| ----------- | ------------------------------------- | ------------- |
+| PORT        | The application port                  | 3000          |
+| NODE_ENV    | The NodeJS environment's current name | dev           |
+| API_BASE    | The application router base path      | /api          |
+| STATIC_BASE | The application static base path      | /             |
+| LOG_DIR     | The application log folder            | log           |
 
 # Run and build
+
+## Install
+
+Before to start, you have to install all dependencies:
+
+```shell
+$ npm install
+```
 
 ## Development
 
@@ -79,7 +83,7 @@ $ npm start
 # Test
 
 ```shell
-$ npm test
+$ npm run test
 ```
 
 > **Notes:**
@@ -100,68 +104,13 @@ $ npm run lint
 $ npm run coverage
 ```
 
-The results will be stored at _./coverage_ folder
+The results will be stored at _./coverage_ folder.
 
 > **Notes:**
 >
 > ---
 >
 > - The **src/index.ts** file was excluded from coverage because it is not a typescript module.
-
-# Docker
-
-## Build
-
-To build the image container, use:
-
-```shell
-$ docker build -t <IMAGE-NAME> .
-```
-
-## Run
-
-After the image building, run the following command:
-
-```shell
-$ docker run --rm -it -v"$(pwd)":/app --name <CONTAINER-NAME> <IMAGE-NAME>
-```
-
-> **Notes:**
->
-> ---
->
-> - `<IMAGE-NAME>` as the image name.
-> - `<CONTAINER-NAME>` as the container name.
-
-## Docker compose
-
-In place of build/run procedures, you may use just the docker-compose as follow:
-
-## Build
-
-```shell
-$ docker-compose up --build
-```
-
-## Start
-
-```shell
-$ docker-compose start
-```
-
-## Stop
-
-```shell
-$ docker-compose stop
-```
-
-## Removing
-
-In order to remove the container, the associated images, orphans containers and volumes, use:
-
-```shell
-$ docker-compose down --rmi "all" --remove-orphans --volumes
-```
 
 # Usage
 
