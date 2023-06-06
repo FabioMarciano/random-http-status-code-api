@@ -1,7 +1,7 @@
-FROM node:latest
+FROM node:lts-alpine
 
 # Add bash to alpine.
-# RUN apk add --no-cache bash
+RUN apk update && apk add --no-cache bash
 
 # Create the node_modules's cache directory.
 RUN mkdir /cache
@@ -13,10 +13,10 @@ WORKDIR /cache
 COPY package.json .
 
 # Install the application's dependencies into the node_modules's cache directory.
-RUN npm install && npm install -g typescript
+RUN npm install
 
 # Remove the package.json to prevent overwriting.
-RUN rm -f package.json
+# RUN rm -f package.json
 
 # Create the app directory.
 RUN mkdir /app
