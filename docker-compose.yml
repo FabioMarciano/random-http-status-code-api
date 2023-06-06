@@ -2,9 +2,7 @@ version: '3'
 
 services:
   api:
-    build: 
-      context: .
-      network: host
+    build: .
     env_file: .env
     volumes:
       - ./:/app

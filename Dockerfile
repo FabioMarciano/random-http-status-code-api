@@ -1,7 +1,7 @@
-FROM node:lts-alpine
+FROM node:latest
 
 # Add bash to alpine.
-RUN apk add --no-cache bash
+# RUN apk add --no-cache bash
 
 # Create the node_modules's cache directory.
 RUN mkdir /cache
