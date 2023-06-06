@@ -4,7 +4,8 @@
 
 import { Request, Response } from 'express';
 import HttpStatus from '../type/http.status';
+import HttpStatusMessage from '../type/http.status.message';
 
 export default (_request: Request, response: Response, httpStatusCode: HttpStatus = HttpStatus.OK): void => {
-	response.sendStatus(httpStatusCode);
+	response.status(httpStatusCode).send(HttpStatusMessage[httpStatusCode]);
 };
