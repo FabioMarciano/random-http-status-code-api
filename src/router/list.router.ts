@@ -1,15 +1,15 @@
 /**
- * Root Router file.
+ * List Router file.
  */
 
 'use strict';
 
 import { Router, Request, Response } from 'express';
-import controller from '../controller/root.controller';
+import controller from '../controller/list.controller';
 
 const router: Router = Router();
 
-router.all('/', (request: Request, response: Response): void => {
+router.get('/list', (request: Request, response: Response) => {
 	controller(request, response);
 });
 

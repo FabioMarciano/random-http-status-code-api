@@ -2,16 +2,18 @@
  * Ping Model file.
  */
 
+'use strict';
+
 import { HttpStatusMessage } from '../type';
 import HealthCheck from '../type/health.check';
-import HttpStatus from '../type/http.status';
+import HttpStatusCode from '../type/http.status.code';
 
 export default (): HealthCheck => {
 	const healthCheck: HealthCheck = {
 		uptime: process.uptime(),
 		status: {
-			code: HttpStatus.OK,
-			message: HttpStatusMessage[HttpStatus.OK],
+			code: HttpStatusCode.OK,
+			message: HttpStatusMessage[HttpStatusCode.OK],
 		},
 		timestamp: Date.now(),
 	};

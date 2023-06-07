@@ -2,12 +2,14 @@
  * HealthCheck type file.
  */
 
-import HttpStatus from './http.status';
+'use strict';
+
+import HttpStatusCode from './http.status.code';
 
 type HealthCheck = {
 	uptime: number;
 	status: {
-		code: HttpStatus;
+		code: HttpStatusCode;
 		message: string;
 	};
 	timestamp: number;

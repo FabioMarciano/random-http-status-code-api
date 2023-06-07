@@ -2,8 +2,10 @@
  * Types index file.
  */
 
+'use strict';
+
 import HealthCheck from './health.check';
-import HttpStatus from './http.status';
+import HttpStatusCode from './http.status.code';
 import HttpStatusMessage from './http.status.message';
 
-export { HealthCheck, HttpStatus, HttpStatusMessage };
+export { HealthCheck, HttpStatusCode, HttpStatusMessage };

@@ -4,6 +4,7 @@ import * as controller from '../../src/controller';
 const req = {} as Request;
 const res = {} as Response;
 res.status = jest.fn().mockReturnThis();
+res.setHeader = jest.fn().mockReturnThis();
 res.send = jest.fn();
 
 describe('Ping Controller', () => {

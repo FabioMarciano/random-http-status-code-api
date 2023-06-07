@@ -2,6 +2,8 @@
  * Ping Controller file.
  */
 
+'use strict';
+
 import { Request, Response } from 'express';
 import model from '../model/ping.model';
 import view from '../view/ping.view';

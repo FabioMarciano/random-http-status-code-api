@@ -2,10 +2,12 @@
  * Status Code Model file.
  */
 
-import { Request } from 'express';
-import HttpStatus from '../type/http.status';
+'use strict';
 
-export default (request: Request): HttpStatus => {
-	const httpStatusCode: HttpStatus = Number(request.params.httpStatusCode);
+import { Request } from 'express';
+import HttpStatusCode from '../type/http.status.code';
+
+export default (request: Request): HttpStatusCode => {
+	const httpStatusCode: HttpStatusCode = Number(request.params.httpStatusCode);
 	return httpStatusCode;
 };
