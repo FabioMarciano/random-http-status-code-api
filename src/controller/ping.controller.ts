@@ -3,11 +3,11 @@
  */
 
 import { Request, Response } from 'express';
-import HttpStatus from '../type/http.status';
 import model from '../model/ping.model';
 import view from '../view/ping.view';
+import HealthCheck from '../type/health.check';
 
 export default (request: Request, response: Response): void => {
-	const httpStatusCode: HttpStatus = model();
-	view(request, response, httpStatusCode);
+	const healthCheck: HealthCheck = model();
+	view(request, response, healthCheck);
 };
