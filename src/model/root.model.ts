@@ -2,10 +2,12 @@
  * Root Model file.
  */
 
-import randomStatus from '../util/random.status';
-import HttpStatus from '../type/http.status';
+'use strict';
 
-export default (): HttpStatus => {
+import randomStatus from '../util/random.status';
+import HttpStatusCode from '../type/http.status.code';
+
+export default (): HttpStatusCode => {
 	const httpStatusCode = randomStatus();
 	return httpStatusCode;
 };

@@ -2,6 +2,8 @@
  * Log utility file.
  */
 
+'use strict';
+
 import winston from 'winston';
 
 const { logDir = `log` } = { logDir: process.env.LOG_DIR };

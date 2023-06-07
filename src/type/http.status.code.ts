@@ -1,8 +1,10 @@
 /**
- * HttpStatus type file.
+ * HttpStatusCode type file.
  */
 
-enum HttpStatus {
+'use strict';
+
+enum HttpStatusCode {
 	Continue = 100,
 	SwitchingProtocols = 101,
 	Processing = 102,
@@ -68,4 +70,4 @@ enum HttpStatus {
 	NetworkConnectTimeoutError = 599,
 }
 
-export default HttpStatus;
+export default HttpStatusCode;

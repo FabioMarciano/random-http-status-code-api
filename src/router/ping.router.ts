@@ -2,6 +2,8 @@
  * Ping Router file.
  */
 
+'use strict';
+
 import { Router, Request, Response } from 'express';
 import controller from '../controller/ping.controller';
 

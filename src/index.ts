@@ -2,6 +2,8 @@
  * Index archetype file.
  */
 
+'use strict';
+
 import express from 'express';
 import routers from './router';
 import log from './util/log';
