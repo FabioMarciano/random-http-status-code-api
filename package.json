@@ -1,5 +1,5 @@
 {
-	"name": "random-shttp-status-code",
+	"name": "random-shttp-status-code-api",
 	"version": "1.0.0",
 	"description": "Random HTTP Status Code application",
 	"main": "index.js",
