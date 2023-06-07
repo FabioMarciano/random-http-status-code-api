@@ -3,5 +3,6 @@
  */
 
 import log from './log';
+import randomStatus from './random.status';
 
-export { log };
+export { log, randomStatus };

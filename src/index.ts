@@ -9,11 +9,11 @@ import staticPublic from './router/static.public.router';
 
 const app = express();
 const { port = `3000` } = { port: process.env.PORT };
-const { base = `/api` } = { base: process.env.API_BASE };
-const { spub = `/` } = { spub: process.env.STATIC_BASE };
+const { apiBase = `/api` } = { apiBase: process.env.API_BASE };
+const { staticBase = `/` } = { staticBase: process.env.STATIC_BASE };
 
-app.use(spub, staticPublic);
-app.use(base, routers);
+app.use(staticBase, staticPublic);
+app.use(apiBase, routers);
 
 try {
 	app.listen(port, () => {
