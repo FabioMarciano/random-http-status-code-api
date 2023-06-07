@@ -1,4 +1,4 @@
-name: Code Test
+name: Code Quality Test
 on:
   pull_request:
     branches: ['master']
@@ -6,12 +6,22 @@ permissions:
   checks: write
   contents: write
 jobs:
-  code-test:
-    name: Code Test
+  code-quality:
+    name: Code Quality
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [18]
+
     steps:
-      - uses: actions/setup-node@v3
-      - run: |
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.version }}
+
+      - name: Test Quality
+        run: |
           npm install
           npm run lint
           npm run test
