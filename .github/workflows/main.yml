@@ -1,0 +1,17 @@
+name: Code Test
+on:
+  pull_request:
+    branches: ['master']
+permissions:
+  checks: write
+  contents: write
+jobs:
+  code-test:
+    name: Code Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v3
+      - run: |
+          npm install
+          npm run lint
+          npm run test
