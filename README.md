@@ -116,6 +116,40 @@ The results will be stored at _./coverage_ folder.
 
 After install and run the applications you can request into the following endpoints (considering `localhost` as host on HTTP requests):
 
+## Health Check
+
+The **Health Check** endpoint is used to check the api `status code`, `status message`, application `uptime` and current `timestamp`.
+
+### Request:
+
+```http
+GET /api/ping HTTP/1.1
+
+Host: localhost
+Port: 3000
+```
+
+### Response:
+
+```http
+HTTP/1.1 200 Ok
+Content-Type: application/json
+body: {
+    float uptime,
+    status: {
+        int code,
+        string message
+    }
+    int timestamp
+}
+```
+
+---
+
+## Random Status Code
+
+The **Random Status Code** endpoint is used to get an valid HTTP status code response.
+
 ### Request:
 
 ```http
@@ -136,6 +170,33 @@ HTTP/1.1 <code> <message>
 > ---
 >
 > - `<code>` random HTTP Status Code.
-> - `<message>` the random's HTTP Status Code message.
+> - `<message>` the random HTTP Status Code message.
+
+---
+
+## Fixed Status Code
+
+The **Fixed Status Code** endpoint is used to get an preselected response:
+
+### Request:
+
+```http
+GET /api/404 HTTP/1.1
+
+Host: localhost
+Port: 3000
+```
+
+### Response:
+
+```http
+HTTP/1.1 404 Not Found
+```
+
+> **Notes:**
+>
+> ---
+>
+> The response will have the same status as the provided request parameter.
 
 ---
