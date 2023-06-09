@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html itemscope itemtype="http://schema.org/NewsArticle" lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title itemprop="headline">Random HTTP Status Code API</title>
+		<meta
+			itemprop="description"
+			name="og:description"
+			content="API to get random, given or a list of HTTP Status Codes."
+		/>
+		<meta itemprop="url" name="canonical" content="https://random-http-status-code-api.onrender.com/" />
+		<meta
+			itemprop="image"
+			name="og:image"
+			content="https://random-http-status-code-api.onrender.com/assets/media/cover.jpg"
+		/>
+		<link rel="stylesheet" type="text/css" href="/assets/style/main.css" />
+	</head>
+	<body>
+		<main>
+			<header></header>
+			<article>
+				<header>
+					<h1>Random HTTP Status Code API</h1>
+					<h2>A service that can returns a random, a given or a list of HTTP Status Codes.</h2>
+					<address itemprop="author" itemscope itemtype="http://schema.org/Person">
+						<a itemprop="url" href="https://github.com/FabioMarciano/"
+							><strong itemprop="name">Fabio Marciano</strong></a
+						>
+					</address>
+				</header>
+				<div itemscope itemprop="articleBody">
+					<h3>What is it?</h3>
+					<p>
+						The <strong>Random HTTP Status Code API</strong> is an apllication that can return a random (or a given)
+						status response or a list of HTTP Status Codes.
+					</p>
+					<h3>How it works?</h3>
+					<p>
+						Simple make a request using any of one http methods (GET, POST, PUT, DELETE and etc.) to the proper endpoint
+						to get a random response.
+					</p>
+					<p>
+						Alternativelly, you can specify the code you wish on your request, you will get the same type of response
+						(if applicable).
+					</p>
+					<p>The application can also provide a list of all HTTP Status Codes (json format).</p>
+					<h3>Endpoints</h3>
+					<p>Currently the API provide three endpoints: random response, fixed response and list of all codes.</p>
+
+					<h4>Random response</h4>
+					<p>In order to obtain a random response you can use the following request (using GET method, for example):</p>
+					<h5>Request:</h5>
+					<code data-type="http">
+						<strong>GET</strong> HTTP/1.1
+						<a rel="nofollow" target="_blank" href="https://random-http-status-code-api.onrender.com/api">/api</a>
+						<dl>
+							<dt>Host:</dt>
+							<dd>https://random-http-status-code-api.onrender.com/</dd>
+						</dl>
+					</code>
+					<p>The code above can return, randomically, any one of the enabled HTTP Status Codes. Example:</p>
+					<h5>Response:</h5>
+					<code data-type="http"> HTTP/1.1 <var>410</var> <em>Gone</em> </code>
+					<h4>Expected response</h4>
+					<p>
+						If one of the enabled status codes is given on the request, the response will be of the same category.
+						Example:
+					</p>
+					<h5>Request:</h5>
+					<code data-type="http">
+						<strong>POST</strong> HTTP/1.1
+						<a rel="nofollow" target="_blank" href="https://random-http-status-code-api.onrender.com/api/500"
+							>/api/500</a
+						>
+						<dl>
+							<dt>Host:</dt>
+							<dd>https://random-http-status-code-api.onrender.com/</dd>
+						</dl>
+					</code>
+					<h5>Response:</h5>
+					<code data-type="http"> HTTP/1.1 <var>500</var> <em>Internal Server Error</em> </code>
+					<h4>List</h4>
+					<p>The API can also provide a list of all enabled HTTP Status Codes using the following request:</p>
+					<h5>Request:</h5>
+					<code data-type="http">
+						<strong>GET</strong> HTTP/1.1
+						<a rel="nofollow" target="_blank" href="https://random-http-status-code-api.onrender.com/api/list"
+							>/api/list</a
+						>
+						<dl>
+							<dt>Host:</dt>
+							<dd>https://random-http-status-code-api.onrender.com/</dd>
+						</dl>
+					</code>
+					<h5>Response:</h5>
+					<code data-type="http">
+						HTTP/1.1 <var>200</var> <em>Ok</em>
+						<dl>
+							<dt>Content-Type:</dt>
+							<dd>application/json</dd>
+						</dl>
+						<pre>
+[
+  {
+    "code": "100",
+    "message": "Continue"
+  },
+  {
+    "code": "101",
+    "message": "Switching Protocols"
+  },
+  ...
+]</pre
+						>
+					</code>
+				</div>
+			</article>
+			<aside>
+				<h3>Donation:</h3>
+				<p>You could support us making a donation using the following ways:</p>
+				<div>
+					<h4>PayPal</h4>
+					<p>
+						Send any value to your <a href="https://www.paypal.com/donate/?hosted_button_id=7EQL4D4F8ZAXW">PayPal</a> or
+						use the QR Code below:
+					</p>
+					<figure>
+						<img
+							src="/assets/media/donation-paypal-qr-code.png"
+							width="128"
+							height="128"
+							alt="Make a PayPal donation usingo the URL https://www.paypal.com/donate/?hosted_button_id=7EQL4D4F8ZAXW"
+						/>
+					</figure>
+					<h4>PIX (Brazil only)</h4>
+					<figure>
+						<img
+							src="/assets/media/donation-br-pix.png"
+							width="128"
+							height="128"
+							alt="Make a PIX to +55 11 979658102"
+						/>
+					</figure>
+				</div>
+				<h3>External references:</h3>
+				<nav>
+					<ul>
+						<li>
+							<a rel="nofollow" target="_blank" href="https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html"
+								>HTTP/1.1: Status Code Definitions</a
+							>
+						</li>
+						<li>
+							<a rel="nofollow" target="_blank" href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes"
+								>List of HTTP Status Codes - Wikipedia</a
+							>
+						</li>
+						<li>
+							<a rel="nofollow" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status"
+								>HTTP response status codes - MDN Web Docs - Mozilla</a
+							>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+			<footer></footer>
+		</main>
+	</body>
+</html>
